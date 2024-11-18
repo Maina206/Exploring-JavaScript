@@ -12,7 +12,7 @@
     <body>
         <div class="card">
             <div class="search">
-                <input type="text" placeholder="Enter a city" spellcheck="false">
+                <input type="text" placeholder="Enter a city" spellcheck="true">
                 <button><img src="../assets/weather-app-img/images/search.png" alt="search-icon"/></button>
             </div>
 
@@ -43,6 +43,7 @@
                 </div>
             </div>
         </div>
+
         
         <script>
             const apiKey = "1ee38864dbcb7aa8298f0d3e26e32c80";
@@ -52,12 +53,14 @@
             const weatherIcon = document.querySelector(".weather-icon");
 
             async function checkWeather(city) {
+                //We pass the data we get back from the FETCH API to response
                 const response = await fetch(apiUrl + `&q=${city}` + `&appid=${apiKey}`);
 
                 if (response.status == 404) {
                     document.querySelector(".error").style.display = "block";
                     document.querySelector(".weather").style.display = "none";
                 } else {
+                    //we convert the json data into a JS object we can work with
                     let data = await response.json();
 
                 console.log(data);
@@ -86,7 +89,7 @@
 
                 }
             }
-
+            //we add an event listener to our button which calls the checkWeather() function and passes the input, i.e, searchBox.value in the search box.
             searchBtn.addEventListener("click", () => {
                 checkWeather(searchBox.value);
             });
