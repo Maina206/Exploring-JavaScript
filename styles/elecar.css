@@ -108,6 +108,22 @@ img {
   overflow: hidden;
 }
 
+.shape {
+  background-color: hsl(219, 33%, 32%, 0.5);
+  filter: blur(112px);
+  border-radius: 50%;
+}
+
+.shape__big {
+  width: 400px;
+  height: 400px;
+}
+
+.shape__small {
+  width: 300px;
+  height: 300px;
+}
+
 /* Header & Nav */
 header {
   width: 100%;
@@ -198,6 +214,13 @@ nav__toggle {
   right: 0;
 }
 
+/* Let's change the background of the header when you scroll */
+.scroll-header {
+  border-radius: 0 0 1rem 1rem;
+  background-color: var(--body-color);
+  box-shadow: 0 2px 4px hsla(0, 0%, 1%, 1);
+}
+
 /* The Home page */
 .home {
   position: relative;
@@ -240,4 +263,151 @@ nav__toggle {
 .home__img {
   width: 280px;
   justify-self: center;
+}
+
+.home__car {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 4rem;
+  margin-bottom: 2rem;
+}
+
+.home__car-name {
+  font-size: 0.625rem;
+  font-weight: 400;
+  color: var(--text-color-light);
+}
+
+.home__car-data {
+  text-align: center;
+}
+
+.home__car-number {
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-medium);
+  margin-bottom: 0.25rem;
+}
+
+.home__car-icon {
+  background-color: var(--container-color);
+  border-radius: 50%;
+  padding: 0.376rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.home__button {
+  position: relative;
+  border: 2px solid hsl(158, 89%, 30%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  font-size: var(--small-font-size);
+  color: var(--white-color);
+  font-weight: var(--font-medium);
+}
+
+.home__button::before {
+  content: "";
+  border: 2px solid hsl(158, 98%, 43%);
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 0 12px hsl(158, 98%, 43%);
+  transform: 0.3s;
+  animation: button 3s infinite;
+}
+
+.home .shape__big,
+.home .shape__small {
+  position: absolute;
+}
+
+.home .shape__big {
+  left: -9rem;
+  top: -4rem;
+}
+
+.home .shape__small {
+  right: -10rem;
+  bottom: 3rem;
+}
+
+/* Let's animate the button - what we are doing creating a pulsing effect using the blur radius that alternates from 12px tp 24px */
+@keyframes button {
+  0% {
+    box-shadow: 0 0 12px hsl(158, 98%, 43%);
+  }
+  50% {
+    box-shadow: 0 0 24px hsl(158, 98%, 43%);
+  }
+}
+
+/* About section */
+.about__container {
+  row-gap: 6rem;
+}
+
+.about__group {
+  position: relative;
+}
+
+.about__img {
+  width: 310px;
+  border-radius: 0.5rem;
+}
+
+.about__card {
+  width: 180px;
+  position: absolute;
+  right: 0;
+  bottom: -2.5rem;
+  background-color: hsla(0, 0%, 100%, 0.1);
+  backdrop-filter: blur(16px);
+  padding: 1rem 0.75rem;
+  text-align: center;
+  border-radius: 1.25rem;
+}
+
+.about__card-title {
+  font-size: var(--h3-font-size);
+  margin-bottom: 0.5rem;
+}
+
+.about__card-description {
+  font-size: var(--small-font-size);
+  /* margin-bottom: 0.5rem; */
+}
+
+.about__title {
+  text-align: initial;
+  margin-bottom: 2rem;
+}
+
+.about__description {
+  margin-bottom: 2rem;
+}
+
+/* The styles for all our buttons */
+.button {
+  display: inline-block;
+  background-color: var(--first-color);
+  color: var(--white-color);
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+  font-size: var(--normal-font-size);
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: var(--first-color-alt);
 }
