@@ -42,4 +42,29 @@ function scrollHeader() {
 
 window.addEventListener("scroll", scrollHeader);
 
-/* Testimonial Swipe */
+/* Popular Swiper */
+// For this section we used a third party module - swiperjs.com site which provided us with all the code needed
+let swiperPopular = new Swiper(".popular__container", {
+  loop: true,
+  spaceBetween: 24,
+  slidesPerView: "auto",
+  grabCursor: true,
+  pagination: {
+    el: ".swiper-pagination",
+    dynamicBullets: true,
+  },
+  breakpoints: {
+    // 640: {
+    //   slidesPerView: 2,
+    //   spaceBetween: 20,
+    // },
+    768: {
+      slidesPerView: 3,
+      // spaceBetween: 40,
+    },
+    1024: {
+      // slidesPerView: 5,
+      spaceBetween: 48,
+    },
+  },
+});
