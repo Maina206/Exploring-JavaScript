@@ -68,3 +68,30 @@ let swiperPopular = new Swiper(".popular__container", {
     },
   },
 });
+
+/* MixItUp FIlter Featured - this is an external module from mixitup by KunkaLabs. Check PatrickKunka on github the files are there */
+let mixerFeatured = mixitup(".featured__content", {
+  selectors: {
+    target: ".featured__card",
+  },
+  animation: {
+    duration: 400,
+    easing: "ease",
+  },
+  // controls: {
+  //   toggleLogic: true,
+  // },
+});
+
+// Link active featured
+const linkFeatured = document.querySelectorAll(".featured__item");
+
+function activeFeatured() {
+  linkFeatured.forEach((l) => {
+    l.classList.remove("active-featured");
+  });
+  this.classList.add("active-featured");
+}
+linkFeatured.forEach((l) => {
+  l.addEventListener("click", activeFeatured);
+});
