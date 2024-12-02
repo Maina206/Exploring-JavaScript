@@ -95,3 +95,41 @@ function activeFeatured() {
 linkFeatured.forEach((l) => {
   l.addEventListener("click", activeFeatured);
 });
+
+/* ====== Scroll up show ====== */
+function scrollUp() {
+  const scrollUp = document.getElementById("scroll-up");
+  // When the scroll is greater than 350 viewport height, add the show-scroll-up class to the scroll-up tag
+  if (this.scrollY >= 350) {
+    scrollUp.classList.add("show-scroll");
+  } else {
+    scrollUp.classList.remove("show-scroll");
+  }
+}
+
+window.addEventListener("scroll", scrollUp);
+
+/* ====== Scroll Section Active Link ====== */
+const sections = document.querySelectorAll("section[id]");
+
+function scrollActive() {
+  const scrollY = window.pageYOffset;
+
+  sections.forEach((current) => {
+    const sectionHeight = current.offsetHeight;
+    const sectionTop = current.offsetTop - 58;
+    const sectionId = current.getAttribute("id");
+    // Add the active class to the link that corresponds to the section
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      document
+        .querySelector(".nav__menu a[href*=" + sectionId + "]")
+        .classList.add("active-link");
+    } else {
+      document
+        .querySelector(".nav__menu a[href*=" + sectionId + "]")
+        .classList.remove("active-link");
+    }
+  });
+}
+
+window.addEventListener("scroll", scrollActive);
